@@ -14,6 +14,7 @@ class Point:
             без регистрации функция не будет работать Point.set_coords() выдаст ошибку
             
             TypeError: Point.set_coords() missing 1 required positional argument: 'self'
+            
         """
 
 

@@ -23,6 +23,10 @@ class Point:
         return self.x, self.y
 
 
+    def __del__(self):
+        print('Функция __del__ ')
+
+
 
 pt = Point(2,3)
 print(pt.__dict__)

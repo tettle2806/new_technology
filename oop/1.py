@@ -4,6 +4,12 @@ class Point:
     circle = 2
 
     def set_coords(self):
+
+        """
+        :self - уникальный идентификатор экземпляра указывает на объект
+        :return:
+        """
+
         print(f'Вызов метода set_coords {self}')
         print(type(self))
         """

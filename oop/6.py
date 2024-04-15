@@ -27,3 +27,55 @@ class Point:
     @classmethod
     def set_bound(cls, left):
         cls.MIN_COORD = left
+
+    def __getattribute__(self, item):
+        """
+        TODO Управляет обращениями к атрибутам класса
+        TODO Срабатывает автоматически
+        :param item:
+        :return:
+        """
+        if item == 'x':
+            raise ValueError('Доступ запрещен')
+        else:
+            return object.__getattribute__(self, item)
+
+    def __setattr__(self, key, value):
+        """
+        TODO Данный магический метод вызывается автоматически при создании экземпляра класса
+        TODO С помощью него можно запретить создавать какой либо локальный атрибут в экземплярах класса
+        TODO Пример
+        :param key:
+        :param value:
+        :return:
+        """
+        if key =="z":
+            raise AttributeError("Недопустимое имя атрибута")
+        else:
+            object.__setattr__(self, key, value)
+            # self.__dict__[key] = value так делать не стоит
+
+    def __getattr__(self, item):
+        """
+        Вызывается автоматически каждый раз когда идет обращение к несуществующему атрибуту экземпляру класса
+        :param item:
+        :return:
+        """
+        return False
+
+
+    def __delattr__(self, item):
+        """
+        Вызывается всякий раз когда удаляется определенный атрибут экземпляра класса
+        :param item:
+        :return:
+        """
+        print('__delattr__: ' + item)
+        object.__delattr__(self, item) # Удаляет атрибуты
+
+p1 = Point(1, 2)
+p2 = Point(3 ,4 )
+p1.y = 2
+print(p1.MAX_COORD)
+del p1.x
+print(p1.__dict__)

@@ -6,6 +6,7 @@ TODO Паттерн <<МОНОСОСТОЯНИЕ>>
 
 """
 
+
 class ThreadData:
     __shared_attrs = {
         'name': 'thread1',

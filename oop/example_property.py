@@ -3,6 +3,7 @@ TODO Пример использования объектов property
 """
 from string import ascii_letters
 
+
 class Person:
     S_RUS = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя- '
     S_RUS_UPPER = S_RUS.upper()
@@ -37,7 +38,7 @@ class Person:
             if len(s) < 1:
                 raise TypeError('В ФИО должен быть хотя бы один символ')
             if len(s.strip(letters)) != 0:
-                raise TypeError('В ФИО можно исползовать только буквенные символы и дефис')
+                raise TypeError('В ФИО можно использовать только буквенные символы и дефис')
 
     @classmethod
     def verify_old(cls, old):
@@ -55,13 +56,12 @@ class Person:
             raise TypeError('Паспорт должен быть строкой')
 
         s = ps.split()
-        if len(s) != 2 or len(s[0]) !=4 or len(s[1]) !=6:
+        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
             raise TypeError('Неверный формат поспорта')
 
         for p in s:
             if not p.isdigit():
                 raise TypeError('Серия и номер паспорта должны быть числами')
-
 
     @property
     def fio(self):
@@ -93,8 +93,6 @@ class Person:
     def passport(self, ps):
         self.verify_ps(ps)
         self.__passport = ps
-
-
 
 
 p = Person('Расулов Зайниддин Зохиджон', 19, '1234 567890', 59.0)

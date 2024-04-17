@@ -34,12 +34,3 @@ class Person:
     def old(self):
         del self.__old
 
-
-
-
-
-p = Person('Zayniddin', 20)
-del p.old
-print(p.__dict__)
-p.get_old = 35
-print(p.__dict__)

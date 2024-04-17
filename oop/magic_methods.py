@@ -18,6 +18,7 @@ class Point:
         self.y = y
 
 
+# Паттерн синглтон
 class DataBase:
     __instance = None
 

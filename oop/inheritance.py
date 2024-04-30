@@ -1,4 +1,7 @@
 class Geom:
     pass
 
-print(Geom.__name__)
+
+class Line(Geom):
+    pass
+
